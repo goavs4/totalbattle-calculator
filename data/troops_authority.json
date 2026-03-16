@@ -1,0 +1,123 @@
+{
+  "version": "3.0",
+  "resource": "authority",
+  "notes": "Mercenaries use Authority (separate cap). Include all unit classes: melee, ranged, cavalry, flying, elemental, dragon, beast. Mine stats from Mercenary Exchange in-game.",
+
+  "unit_classes_present": ["melee", "ranged", "cavalry", "flying", "elemental", "dragon", "beast"],
+
+  "mercenaries": [
+
+    {
+      "unit_id": "merc_melee_1",
+      "name": "TEMPLATE Melee Mercenary",
+      "unit_class": "melee",
+      "tier_equivalent": null,
+      "strength": null,
+      "health": null,
+      "authority": null,
+      "initiative": null,
+      "bonuses": [],
+      "source": "Mercenary Exchange",
+      "notes": "Replace with real name and stats from in-game"
+    },
+    {
+      "unit_id": "merc_ranged_1",
+      "name": "TEMPLATE Ranged Mercenary",
+      "unit_class": "ranged",
+      "tier_equivalent": null,
+      "strength": null,
+      "health": null,
+      "authority": null,
+      "initiative": null,
+      "bonuses": [],
+      "source": "Mercenary Exchange",
+      "notes": "Replace with real name and stats from in-game"
+    },
+    {
+      "unit_id": "merc_cavalry_1",
+      "name": "TEMPLATE Cavalry Mercenary",
+      "unit_class": "cavalry",
+      "tier_equivalent": null,
+      "strength": null,
+      "health": null,
+      "authority": 2,
+      "initiative": null,
+      "bonuses": [],
+      "source": "Mercenary Exchange",
+      "notes": "Cavalry typically cost 2 authority like Riders cost 2 leadership"
+    },
+    {
+      "unit_id": "merc_flying_1",
+      "name": "TEMPLATE Flying Mercenary",
+      "unit_class": "flying",
+      "tier_equivalent": null,
+      "strength": null,
+      "health": null,
+      "authority": null,
+      "initiative": null,
+      "bonuses": [],
+      "source": "Mercenary Exchange",
+      "notes": "Replace with real name and stats from in-game"
+    },
+    {
+      "unit_id": "merc_elemental_1",
+      "name": "TEMPLATE Elemental Mercenary",
+      "unit_class": "elemental",
+      "tier_equivalent": null,
+      "strength": null,
+      "health": null,
+      "authority": null,
+      "initiative": null,
+      "bonuses": [],
+      "source": "Mercenary Exchange",
+      "notes": "Replace with real name and stats from in-game"
+    },
+    {
+      "unit_id": "merc_dragon_1",
+      "name": "TEMPLATE Dragon Mercenary",
+      "unit_class": "dragon",
+      "tier_equivalent": null,
+      "strength": null,
+      "health": null,
+      "authority": null,
+      "initiative": null,
+      "bonuses": [],
+      "source": "Mercenary Exchange",
+      "notes": "Dragons typically high authority cost"
+    },
+    {
+      "unit_id": "merc_beast_1",
+      "name": "TEMPLATE Beast Mercenary",
+      "unit_class": "beast",
+      "tier_equivalent": null,
+      "strength": null,
+      "health": null,
+      "authority": null,
+      "initiative": null,
+      "bonuses": [],
+      "source": "Mercenary Exchange",
+      "notes": "Replace with real name and stats from in-game"
+    }
+
+  ],
+
+  "data_guide": {
+    "how_to_mine": "In-game: Mercenary Exchange. Each merc shows unit class, strength, health, authority cost.",
+    "bonus_types": ["strength_vs_melee", "strength_vs_ranged", "strength_vs_cavalry", "strength_vs_flying", "strength_vs_magic", "strength_vs_beast", "strength_vs_elemental", "strength_vs_dragon"],
+    "example_filled": {
+      "unit_id": "merc_dragon_fire",
+      "name": "Fire Drake",
+      "unit_class": "dragon",
+      "tier_equivalent": 6,
+      "strength": 15000,
+      "health": 45000,
+      "authority": 20,
+      "initiative": 3,
+      "bonuses": [
+        { "type": "strength_vs_melee", "value": 30, "notes": "+30% vs melee" }
+      ],
+      "source": "Mercenary Exchange",
+      "notes": "Available during fire events"
+    }
+  }
+}
