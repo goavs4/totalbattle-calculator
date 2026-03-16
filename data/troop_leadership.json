@@ -1,0 +1,112 @@
+{
+  "version": "3.0",
+  "resource": "leadership",
+  "notes": "Guardsmen (G1-G9), Specialists (S1-S9), Engineering Corps (E1-E9). Stats from TB Wiki Jan 2026. Null = not yet mined.",
+  "factions": {
+
+    "guardsmen": {
+      "description": "Strong vs monsters. Core PvE troop type.",
+      "unit_types": {
+        "archers": [
+          { "tier": 1, "unit_id": "G1_archer",    "name": "Archers",     "unit_class": "ranged",  "strength": 50,    "health": 150,    "leadership": 1 },
+          { "tier": 2, "unit_id": "G2_archer",    "name": "Archers",     "unit_class": "ranged",  "strength": 90,    "health": 270,    "leadership": 1 },
+          { "tier": 3, "unit_id": "G3_archer",    "name": "Archers",     "unit_class": "ranged",  "strength": 160,   "health": 480,    "leadership": 1 },
+          { "tier": 4, "unit_id": "G4_archer",    "name": "Archers",     "unit_class": "ranged",  "strength": 290,   "health": 870,    "leadership": 1 },
+          { "tier": 5, "unit_id": "G5_archer",    "name": "Archers",     "unit_class": "ranged",  "strength": 520,   "health": 1560,   "leadership": 1 },
+          { "tier": 6, "unit_id": "G6_archer",    "name": "Archers",     "unit_class": "ranged",  "strength": 940,   "health": 2820,   "leadership": 1 },
+          { "tier": 7, "unit_id": "G7_archer",    "name": "Archers",     "unit_class": "ranged",  "strength": 1700,  "health": 5100,   "leadership": 1 },
+          { "tier": 8, "unit_id": "G8_purifier1", "name": "Purifier I",  "unit_class": "ranged",  "strength": 3060,  "health": 9180,   "leadership": 1 },
+          { "tier": 9, "unit_id": "G9_purifier2", "name": "Purifier II", "unit_class": "ranged",  "strength": 5510,  "health": 16530,  "leadership": 1 }
+        ],
+        "spearmen": [
+          { "tier": 1, "unit_id": "G1_spear",     "name": "Spearmen",    "unit_class": "melee",   "strength": 50,    "health": 150,    "leadership": 1 },
+          { "tier": 2, "unit_id": "G2_spear",     "name": "Spearmen",    "unit_class": "melee",   "strength": 90,    "health": 270,    "leadership": 1 },
+          { "tier": 3, "unit_id": "G3_spear",     "name": "Spearmen",    "unit_class": "melee",   "strength": 160,   "health": 480,    "leadership": 1 },
+          { "tier": 4, "unit_id": "G4_spear",     "name": "Spearmen",    "unit_class": "melee",   "strength": 290,   "health": 870,    "leadership": 1 },
+          { "tier": 5, "unit_id": "G5_spear",     "name": "Spearmen",    "unit_class": "melee",   "strength": 520,   "health": 1560,   "leadership": 1 },
+          { "tier": 6, "unit_id": "G6_spear",     "name": "Spearmen",    "unit_class": "melee",   "strength": 940,   "health": 2820,   "leadership": 1 },
+          { "tier": 7, "unit_id": "G7_spear",     "name": "Spearmen",    "unit_class": "melee",   "strength": 1700,  "health": 5100,   "leadership": 1 },
+          { "tier": 8, "unit_id": "G8_punisher1", "name": "Punisher I",  "unit_class": "melee",   "strength": 3060,  "health": 9180,   "leadership": 1 },
+          { "tier": 9, "unit_id": "G9_punisher2", "name": "Punisher II", "unit_class": "melee",   "strength": 5510,  "health": 16530,  "leadership": 1 }
+        ],
+        "riders": [
+          { "tier": 1, "unit_id": "G1_rider",     "name": "Riders",      "unit_class": "cavalry", "strength": 100,   "health": 300,    "leadership": 2 },
+          { "tier": 2, "unit_id": "G2_rider",     "name": "Riders",      "unit_class": "cavalry", "strength": 180,   "health": 540,    "leadership": 2 },
+          { "tier": 3, "unit_id": "G3_rider",     "name": "Riders",      "unit_class": "cavalry", "strength": 320,   "health": 960,    "leadership": 2 },
+          { "tier": 4, "unit_id": "G4_rider",     "name": "Riders",      "unit_class": "cavalry", "strength": 580,   "health": 1740,   "leadership": 2 },
+          { "tier": 5, "unit_id": "G5_rider",     "name": "Riders",      "unit_class": "cavalry", "strength": 1050,  "health": 3150,   "leadership": 2 },
+          { "tier": 6, "unit_id": "G6_rider",     "name": "Riders",      "unit_class": "cavalry", "strength": 1900,  "health": 5700,   "leadership": 2 },
+          { "tier": 7, "unit_id": "G7_rider",     "name": "Riders",      "unit_class": "cavalry", "strength": 3400,  "health": 10200,  "leadership": 2 },
+          { "tier": 8, "unit_id": "G8_smiter1",   "name": "Smiter I",    "unit_class": "cavalry", "strength": 6120,  "health": 18360,  "leadership": 2 },
+          { "tier": 9, "unit_id": "G9_smiter2",   "name": "Smiter II",   "unit_class": "cavalry", "strength": 11020, "health": 33060,  "leadership": 2 }
+        ],
+        "special": [
+          { "tier": 5, "unit_id": "G5_griffin",   "name": "Griffins",    "unit_class": "flying",  "strength": 10000, "health": 30000,  "leadership": 20 },
+          { "tier": 6, "unit_id": "G6_griffin",   "name": "Griffins",    "unit_class": "flying",  "strength": 19000, "health": 57000,  "leadership": 20 },
+          { "tier": 7, "unit_id": "G7_griffin",   "name": "Griffins",    "unit_class": "flying",  "strength": 34000, "health": 102000, "leadership": 20 },
+          { "tier": 8, "unit_id": "G8_corax1",    "name": "Corax I",     "unit_class": "flying",  "strength": 61200, "health": 183600, "leadership": 20 },
+          { "tier": 9, "unit_id": "G9_corax2",    "name": "Corax II",    "unit_class": "flying",  "strength": 110200,"health": 330600, "leadership": 20 }
+        ]
+      }
+    },
+
+    "specialists": {
+      "description": "Strong vs players. Core PvP troop type.",
+      "unit_types": {
+        "swordsmen": [
+          { "tier": 1, "unit_id": "S1_sword",     "name": "Swordsmen",   "unit_class": "melee",   "strength": 50,    "health": 150,    "leadership": 1 },
+          { "tier": 2, "unit_id": "S2_sword",     "name": "Swordsmen",   "unit_class": "melee",   "strength": 90,    "health": 270,    "leadership": 1 },
+          { "tier": 3, "unit_id": "S3_sword",     "name": "Swordsmen",   "unit_class": "melee",   "strength": 160,   "health": 480,    "leadership": 1 },
+          { "tier": 4, "unit_id": "S4_sword",     "name": "Swordsmen",   "unit_class": "melee",   "strength": 290,   "health": 870,    "leadership": 1 },
+          { "tier": 5, "unit_id": "S5_sword",     "name": "Swordsmen",   "unit_class": "melee",   "strength": 520,   "health": 1560,   "leadership": 1 },
+          { "tier": 6, "unit_id": "S6_sword",     "name": "Swordsmen",   "unit_class": "melee",   "strength": 940,   "health": 2820,   "leadership": 1 },
+          { "tier": 7, "unit_id": "S7_sword",     "name": "Swordsmen",   "unit_class": "melee",   "strength": 1700,  "health": 5100,   "leadership": 1 },
+          { "tier": 8, "unit_id": "S8_duelist1",  "name": "Duelist I",   "unit_class": "melee",   "strength": 3060,  "health": 9180,   "leadership": 1 },
+          { "tier": 9, "unit_id": "S9_duelist2",  "name": "Duelist II",  "unit_class": "melee",   "strength": 5510,  "health": 16530,  "leadership": 1 }
+        ],
+        "vultures": [
+          { "tier": 5, "unit_id": "S5_vulture",   "name": "Vultures",    "unit_class": "ranged",  "strength": 520,   "health": 1560,   "leadership": 1 },
+          { "tier": 6, "unit_id": "S6_vulture",   "name": "Vultures",    "unit_class": "ranged",  "strength": 940,   "health": 2820,   "leadership": 1 },
+          { "tier": 7, "unit_id": "S7_vulture",   "name": "Vultures",    "unit_class": "ranged",  "strength": 1700,  "health": 5100,   "leadership": 1 },
+          { "tier": 8, "unit_id": "S8_legit1",    "name": "Legitimist I","unit_class": "ranged",  "strength": 3060,  "health": 9180,   "leadership": 1 },
+          { "tier": 9, "unit_id": "S9_legit2",    "name": "Legitimist II","unit_class": "ranged", "strength": 5510,  "health": 16530,  "leadership": 1 }
+        ],
+        "deadshot": [
+          { "tier": 5, "unit_id": "S5_deadshot",  "name": "Deadshot",    "unit_class": "ranged",  "strength": 520,   "health": 1560,   "leadership": 1 },
+          { "tier": 6, "unit_id": "S6_deadshot",  "name": "Deadshot",    "unit_class": "ranged",  "strength": 940,   "health": 2820,   "leadership": 1 },
+          { "tier": 7, "unit_id": "S7_deadshot",  "name": "Deadshot",    "unit_class": "ranged",  "strength": 1700,  "health": 5100,   "leadership": 1 }
+        ],
+        "lion_riders": [
+          { "tier": 5, "unit_id": "S5_lion",      "name": "Lion Riders", "unit_class": "cavalry", "strength": 1050,  "health": 3150,   "leadership": 2 },
+          { "tier": 6, "unit_id": "S6_lion",      "name": "Lion Riders", "unit_class": "cavalry", "strength": 1900,  "health": 5700,   "leadership": 2 },
+          { "tier": 7, "unit_id": "S7_lion",      "name": "Lion Riders", "unit_class": "cavalry", "strength": 3400,  "health": 10200,  "leadership": 2 },
+          { "tier": 8, "unit_id": "S8_white1",    "name": "Whitemane I", "unit_class": "cavalry", "strength": 6120,  "health": 18360,  "leadership": 2 },
+          { "tier": 9, "unit_id": "S9_white2",    "name": "Whitemane II","unit_class": "cavalry", "strength": 11020, "health": 33060,  "leadership": 2 }
+        ],
+        "special": [
+          { "tier": 8, "unit_id": "S8_royallion1","name": "Royal Lion I","unit_class": "flying",  "strength": 61200, "health": 183600, "leadership": 20 },
+          { "tier": 9, "unit_id": "S9_royallion2","name": "Royal Lion II","unit_class": "flying", "strength": 110200,"health": 330600, "leadership": 20 }
+        ]
+      }
+    },
+
+    "engineering": {
+      "description": "Strong vs fortifications (walls). Only recommended for citadel and PvP (city) attacks.",
+      "wall_attacks_only": true,
+      "unit_types": {
+        "siege": [
+          { "tier": 1, "unit_id": "E1_catapult",  "name": "Catapult",         "unit_class": "siege", "strength": null, "health": null, "leadership": null },
+          { "tier": 2, "unit_id": "E2_catapult",  "name": "Catapult",         "unit_class": "siege", "strength": null, "health": null, "leadership": null },
+          { "tier": 3, "unit_id": "E3_catapult",  "name": "Catapult",         "unit_class": "siege", "strength": null, "health": null, "leadership": null },
+          { "tier": 4, "unit_id": "E4_catapult",  "name": "Catapult",         "unit_class": "siege", "strength": null, "health": null, "leadership": null },
+          { "tier": 5, "unit_id": "E5_catapult",  "name": "Catapult",         "unit_class": "siege", "strength": null, "health": null, "leadership": null },
+          { "tier": 6, "unit_id": "E6_ballista",  "name": "Siege Ballista VI","unit_class": "siege", "strength": null, "health": null, "leadership": null },
+          { "tier": 7, "unit_id": "E7_ballista",  "name": "Siege Ballista VII","unit_class": "siege","strength": null, "health": null, "leadership": null },
+          { "tier": 8, "unit_id": "E8_josephine1","name": "Josephine I",      "unit_class": "cannon","strength": null, "health": null, "leadership": null },
+          { "tier": 9, "unit_id": "E9_josephine2","name": "Josephine II",     "unit_class": "cannon","strength": null, "health": null, "leadership": null }
+        ]
+      }
+    }
+
+  }
+}
