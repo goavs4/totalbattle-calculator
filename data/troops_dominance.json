@@ -1,0 +1,36 @@
+{
+  "version": "3.0",
+  "resource": "dominance",
+  "notes": "Player Monsters M1-M9. Use Dominance (separate cap from Leadership). Both can be on same march. Stats null until mined from in-game.",
+  "unit_classes_present": ["beast", "elemental", "dragon", "flying", "undead", "other"],
+
+  "player_monsters": [
+    { "tier": 1, "unit_id": "M1", "name": "Player Monster T1", "unit_class": null, "strength": null, "health": null, "dominance": null, "notes": "Mine from in-game" },
+    { "tier": 2, "unit_id": "M2", "name": "Player Monster T2", "unit_class": null, "strength": null, "health": null, "dominance": null, "notes": "Mine from in-game" },
+    { "tier": 3, "unit_id": "M3", "name": "Player Monster T3", "unit_class": null, "strength": null, "health": null, "dominance": null, "notes": "Mine from in-game" },
+    { "tier": 4, "unit_id": "M4", "name": "Player Monster T4", "unit_class": null, "strength": null, "health": null, "dominance": null, "notes": "Mine from in-game" },
+    { "tier": 5, "unit_id": "M5", "name": "Player Monster T5", "unit_class": null, "strength": null, "health": null, "dominance": null, "notes": "Mine from in-game" },
+    { "tier": 6, "unit_id": "M6", "name": "Player Monster T6", "unit_class": null, "strength": null, "health": null, "dominance": null, "notes": "Mine from in-game" },
+    { "tier": 7, "unit_id": "M7", "name": "Player Monster T7", "unit_class": null, "strength": null, "health": null, "dominance": null, "notes": "Mine from in-game" },
+    { "tier": 8, "unit_id": "M8", "name": "Player Monster T8", "unit_class": null, "strength": null, "health": null, "dominance": null, "notes": "Mine from in-game" },
+    { "tier": 9, "unit_id": "M9", "name": "Player Monster T9", "unit_class": null, "strength": null, "health": null, "dominance": null, "notes": "Mine from in-game" }
+  ],
+
+  "data_guide": {
+    "how_to_mine": "In-game: Barracks > Monsters tab. Each monster shows strength, health, dominance cost.",
+    "unit_class_options": ["beast", "elemental", "dragon", "flying", "undead", "other"],
+    "example_filled": {
+      "tier": 5,
+      "unit_id": "M5_example",
+      "name": "Actual Monster Name",
+      "unit_class": "dragon",
+      "strength": 12000,
+      "health": 36000,
+      "dominance": 10,
+      "bonuses": [
+        { "type": "strength_vs_melee", "value": 20, "notes": "+20% vs melee" }
+      ],
+      "notes": "Optional notes"
+    }
+  }
+}
