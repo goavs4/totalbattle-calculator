@@ -1,0 +1,187 @@
+{
+  "version": "3.0",
+  "notes": "All enemy content. Categories: rare, common, heroic, citadel_elven, citadel_cursed, epic, other. Factions: barbarian, inferno, undead, elf, cursed, other. allowed_leaders = MAXIMUM permitted by game rules - player chooses any valid combo up to that max.",
+
+  "allowed_leaders_key": {
+    "hero_only":       "Hero only. No captains permitted.",
+    "captain_only":    "Single captain only. No hero permitted.",
+    "hero_plus_3_max": "Hero + up to 3 captains. Player chooses any valid combination.",
+    "captains_3_max":  "Up to 3 captains. No hero permitted. (Arcane Swarm)",
+    "captain_1_max":   "Single captain only. Most standard epics."
+  },
+
+  "unit_class_options": ["melee", "ranged", "cavalry", "flying", "magic", "elemental", "beast", "dragon", "giant", "undead", "siege", "other"],
+
+  "bonus_type_options": [
+    "strength_vs_melee", "strength_vs_ranged", "strength_vs_cavalry",
+    "strength_vs_flying", "strength_vs_magic", "strength_vs_beast",
+    "strength_vs_elemental", "strength_vs_dragon", "health_bonus", "initiative_bonus"
+  ],
+
+  "squads": {
+
+    "common": [
+      {
+        "squad_id": "common_elf_L16",
+        "squad_name": "Elf Squad",
+        "squad_level": 16,
+        "category": "common",
+        "faction": "elf",
+        "allowed_leaders": "captain_only",
+        "notes": "Heavy melee penalty â minimize spearmen/swordsmen",
+        "units": [
+          {
+            "unit_id": "elven_archer_L1", "unit_name": "Elven Archer",
+            "enemy_level": 1, "count": 3300, "unit_class": "ranged",
+            "strength": null, "health": null, "leadership": 1, "initiative": null,
+            "bonuses": [
+              { "type": "strength_vs_melee", "value": 35, "notes": "+35% strength vs melee" }
+            ]
+          },
+          {
+            "unit_id": "druid_L2", "unit_name": "Druid",
+            "enemy_level": 2, "count": 850, "unit_class": "magic",
+            "strength": null, "health": null, "leadership": 1, "initiative": null,
+            "bonuses": [
+              { "type": "strength_vs_melee", "value": 25, "notes": "+25% strength vs melee" }
+            ]
+          }
+        ]
+      },
+      {
+        "squad_id": "common_elf_L18",
+        "squad_name": "Elf Squad",
+        "squad_level": 18,
+        "category": "common",
+        "faction": "elf",
+        "allowed_leaders": "captain_only",
+        "notes": "Mine unit counts and stats from in-game",
+        "units": []
+      },
+      {
+        "squad_id": "common_barbarian_L18",
+        "squad_name": "Barbarian Squad",
+        "squad_level": 18,
+        "category": "common",
+        "faction": "barbarian",
+        "allowed_leaders": "captain_only",
+        "notes": "Mine unit counts and stats from in-game",
+        "units": []
+      },
+      {
+        "squad_id": "common_cursed_L18",
+        "squad_name": "Cursed Squad",
+        "squad_level": 18,
+        "category": "common",
+        "faction": "cursed",
+        "allowed_leaders": "captain_only",
+        "notes": "Mine unit counts and stats from in-game",
+        "units": []
+      }
+    ],
+
+    "rare": [
+      {
+        "squad_id": "rare_template_L1",
+        "squad_name": "TEMPLATE Rare Squad",
+        "squad_level": 0,
+        "category": "rare",
+        "faction": "other",
+        "allowed_leaders": "hero_only",
+        "notes": "Rare squads: Hero only. Delete this template and replace with real data.",
+        "units": []
+      }
+    ],
+
+    "heroic": [
+      {
+        "squad_id": "heroic_template_L1",
+        "squad_name": "TEMPLATE Heroic Squad",
+        "squad_level": 0,
+        "category": "heroic",
+        "faction": "other",
+        "allowed_leaders": "hero_plus_3_max",
+        "notes": "Heroic squads: Hero + up to 3 captains. Delete and replace with real data.",
+        "units": []
+      }
+    ],
+
+    "citadels": [
+      {
+        "squad_id": "citadel_elven_template",
+        "squad_name": "TEMPLATE Elven Citadel",
+        "squad_level": 0,
+        "category": "citadel_elven",
+        "faction": "elf",
+        "allowed_leaders": "hero_plus_3_max",
+        "engineering_recommended": true,
+        "notes": "Elven citadels: Hero + up to 3 captains. Engineering corps recommended (walls involved).",
+        "units": []
+      },
+      {
+        "squad_id": "citadel_cursed_template",
+        "squad_name": "TEMPLATE Cursed Citadel",
+        "squad_level": 0,
+        "category": "citadel_cursed",
+        "faction": "cursed",
+        "allowed_leaders": "hero_plus_3_max",
+        "engineering_recommended": true,
+        "notes": "Cursed citadels: Hero + up to 3 captains. Engineering corps recommended (walls involved).",
+        "units": []
+      }
+    ],
+
+    "epics": [
+      {
+        "squad_id": "epic_armageddon_template",
+        "squad_name": "TEMPLATE Epic Armageddon",
+        "squad_level": 0,
+        "category": "epic",
+        "faction": "other",
+        "allowed_leaders": "hero_only",
+        "notes": "Armageddon: Hero only.",
+        "units": []
+      },
+      {
+        "squad_id": "epic_arcane_swarm_template",
+        "squad_name": "TEMPLATE Epic Arcane Swarm",
+        "squad_level": 0,
+        "category": "epic",
+        "faction": "other",
+        "allowed_leaders": "captains_3_max",
+        "notes": "Arcane Swarm: Up to 3 captains, NO hero.",
+        "units": []
+      },
+      {
+        "squad_id": "epic_standard_template",
+        "squad_name": "TEMPLATE Epic (Standard)",
+        "squad_level": 0,
+        "category": "epic",
+        "faction": "other",
+        "allowed_leaders": "captain_1_max",
+        "notes": "Most standard epics: single captain only. Verify in-game as some differ.",
+        "units": []
+      }
+    ],
+
+    "other": [
+      {
+        "squad_id": "other_runic_template",
+        "squad_name": "TEMPLATE Special/Runic Event Squad",
+        "squad_level": 0,
+        "category": "other",
+        "faction": "other",
+        "allowed_leaders": "captain_only",
+        "notes": "Catch-all for limited event squads, special Runic squads etc. Verify leader rules per event.",
+        "units": []
+      }
+    ]
+
+  },
+
+  "data_guide": {
+    "how_to_mine": "In-game: tap enemy squad before attacking. Unit names, counts, classes visible on squad detail screen. Bonuses shown on individual unit cards.",
+    "squad_id_convention": "{category}_{faction}_{level} e.g. common_elf_L18, rare_barbarian_L22, heroic_inferno_L25",
+    "adding_new_squad": "Copy the elf_L16 example as a template. Fill in squad_id, squad_name, squad_level, faction, and units array."
+  }
+}
