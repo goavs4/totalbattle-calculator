@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -22,125 +21,161 @@
   <!-- ═══════════════════════════════════════════
        STEP 1: ENEMY SQUAD
   ════════════════════════════════════════════ -->
-
   <div class="card">
     <h2><span class="step">1</span> Enemy Squad <span class="optional">optional</span></h2>
     <p class="hint">Select your target to enable bonus warnings and leader rules. Pre-select your heroes/captains in-game first.</p>
 
-```
-<div class="field-row">
-  <div class="field-group">
-    <label for="enemyCategory">Category</label>
-    <select id="enemyCategory" onchange="filterSquadDropdown()">
-      <option value="all">All Categories</option>
-    </select>
-  </div>
-  <div class="field-group">
-    <label for="enemySquad">Squad</label>
-    <select id="enemySquad" onchange="onSquadSelected()">
-      <option value="">-- None / Skip --</option>
-    </select>
-  </div>
-</div>
+    <div class="field-row">
+      <div class="field-group">
+        <label for="enemyCategory">Category</label>
+        <select id="enemyCategory" onchange="filterSquadDropdown()">
+          <option value="all">All Categories</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label for="enemySquad">Squad</label>
+        <select id="enemySquad" onchange="onSquadSelected()">
+          <option value="">-- None / Skip --</option>
+        </select>
+      </div>
+    </div>
 
-<div id="leaderHint" class="leader-hint" style="display:none;"></div>
+    <div id="leaderHint" class="leader-hint" style="display:none;"></div>
 
-<div id="engineeringNote" class="engineering-note" style="display:none;">
-  ⚙️ <strong>Engineering Corps recommended</strong> — walls are involved in this attack. Include E-tier troops in your Leadership total.
-</div>
+    <div id="engineeringNote" class="engineering-note" style="display:none;">
+      ⚙️ <strong>Engineering Corps recommended</strong> — walls are involved in this attack. Include E-tier troops in your Leadership total.
+    </div>
 
-<p class="hint" id="dbStatus">📂 Loading enemy database...</p>
-```
-
+    <p class="hint" id="dbStatus">📂 Loading enemy database...</p>
   </div>
 
   <!-- ═══════════════════════════════════════════
        STEP 2: RESOURCE CAPS
   ════════════════════════════════════════════ -->
-
   <div class="card">
     <h2><span class="step">2</span> Resource Caps</h2>
     <p class="hint">Pre-select your Hero &amp; Captains in-game → tap a target → hit Attack → read the totals from the bottom-left of the attack screen.</p>
 
-```
-<div class="resource-grid">
+    <div class="resource-grid">
 
-  <div class="resource-block leadership">
-    <div class="resource-label">⚔️ Leadership</div>
-    <div class="resource-sub">Guardsmen · Specialists · Engineering</div>
-    <input type="number" id="leadershipCap" placeholder="e.g. 500000" min="0" />
-  </div>
+      <div class="resource-block leadership">
+        <div class="resource-label">⚔️ Leadership</div>
+        <div class="resource-sub">Guardsmen · Specialists · Engineering</div>
+        <input type="number" id="leadershipCap" placeholder="e.g. 500000" min="0" />
+      </div>
 
-  <div class="resource-block dominance">
-    <div class="resource-label">🐲 Dominance</div>
-    <div class="resource-sub">Player Monsters (M1–M9)</div>
-    <input type="number" id="dominanceCap" placeholder="0 if not using" min="0" />
-  </div>
+      <div class="resource-block dominance">
+        <div class="resource-label">🐲 Dominance</div>
+        <div class="resource-sub">Player Monsters (M1–M9)</div>
+        <input type="number" id="dominanceCap" placeholder="0 if not using" min="0" />
+      </div>
 
-  <div class="resource-block authority">
-    <div class="resource-label">🛡️ Authority</div>
-    <div class="resource-sub">Mercenaries (all classes)</div>
-    <input type="number" id="authorityCap" placeholder="0 if not using" min="0" />
-  </div>
+      <div class="resource-block authority">
+        <div class="resource-label">🛡️ Authority</div>
+        <div class="resource-sub">Mercenaries (all classes)</div>
+        <input type="number" id="authorityCap" placeholder="0 if not using" min="0" />
+      </div>
 
-</div>
-```
-
+    </div>
   </div>
 
   <!-- ═══════════════════════════════════════════
-       STEP 3: TIER RANGE
+       STEP 3: TROOP SELECTION BY TYPE
   ════════════════════════════════════════════ -->
-
   <div class="card">
-    <h2><span class="step">3</span> Troop Tier Range</h2>
-    <p class="hint">Set the lowest and highest tier you have available. Applies to all troop types.</p>
+    <h2><span class="step">3</span> Troop Tiers to Use</h2>
+    <p class="hint">Check every tier you want to include in this march. Each troop type is independent — only checked tiers will be stacked.</p>
 
-```
-<div class="field-row">
-  <div class="field-group">
-    <label for="minTier">Lowest Tier</label>
-    <select id="minTier">
-      <option value="1">G1 / S1 / M1 / E1</option>
-      <option value="2">G2 / S2 / M2 / E2</option>
-      <option value="3">G3 / S3 / M3 / E3</option>
-      <option value="4">G4 / S4 / M4 / E4</option>
-      <option value="5" selected>G5 / S5 / M5 / E5</option>
-      <option value="6">G6 / S6 / M6 / E6</option>
-      <option value="7">G7 / S7 / M7 / E7</option>
-      <option value="8">G8 / S8 / M8 / E8</option>
-      <option value="9">G9 / S9 / M9 / E9</option>
-    </select>
-  </div>
-  <div class="field-group">
-    <label for="maxTier">Highest Tier</label>
-    <select id="maxTier">
-      <option value="1">G1 / S1 / M1 / E1</option>
-      <option value="2">G2 / S2 / M2 / E2</option>
-      <option value="3">G3 / S3 / M3 / E3</option>
-      <option value="4">G4 / S4 / M4 / E4</option>
-      <option value="5">G5 / S5 / M5 / E5</option>
-      <option value="6" selected>G6 / S6 / M6 / E6</option>
-      <option value="7">G7 / S7 / M7 / E7</option>
-      <option value="8">G8 / S8 / M8 / E8</option>
-      <option value="9">G9 / S9 / M9 / E9</option>
-    </select>
-  </div>
-</div>
-```
+    <!-- GUARDSMEN -->
+    <div class="tier-section">
+      <div class="tier-section-label leadership-color">⚔️ Guardsmen (G)</div>
+      <div class="tier-checks" id="tiers-G">
+        <label class="cb-label"><input type="checkbox" name="tierG" value="1"> G1</label>
+        <label class="cb-label"><input type="checkbox" name="tierG" value="2"> G2</label>
+        <label class="cb-label"><input type="checkbox" name="tierG" value="3"> G3</label>
+        <label class="cb-label"><input type="checkbox" name="tierG" value="4"> G4</label>
+        <label class="cb-label"><input type="checkbox" name="tierG" value="5" checked> G5</label>
+        <label class="cb-label"><input type="checkbox" name="tierG" value="6" checked> G6</label>
+        <label class="cb-label"><input type="checkbox" name="tierG" value="7"> G7</label>
+        <label class="cb-label"><input type="checkbox" name="tierG" value="8"> G8</label>
+        <label class="cb-label"><input type="checkbox" name="tierG" value="9"> G9</label>
+      </div>
+    </div>
+
+    <!-- SPECIALISTS -->
+    <div class="tier-section">
+      <div class="tier-section-label leadership-color">🗡️ Specialists (S)</div>
+      <div class="tier-checks" id="tiers-S">
+        <label class="cb-label"><input type="checkbox" name="tierS" value="1"> S1</label>
+        <label class="cb-label"><input type="checkbox" name="tierS" value="2"> S2</label>
+        <label class="cb-label"><input type="checkbox" name="tierS" value="3"> S3</label>
+        <label class="cb-label"><input type="checkbox" name="tierS" value="4"> S4</label>
+        <label class="cb-label"><input type="checkbox" name="tierS" value="5" checked> S5</label>
+        <label class="cb-label"><input type="checkbox" name="tierS" value="6"> S6</label>
+        <label class="cb-label"><input type="checkbox" name="tierS" value="7"> S7</label>
+        <label class="cb-label"><input type="checkbox" name="tierS" value="8"> S8</label>
+        <label class="cb-label"><input type="checkbox" name="tierS" value="9"> S9</label>
+      </div>
+    </div>
+
+    <!-- ENGINEERING -->
+    <div class="tier-section" id="engineeringTiers">
+      <div class="tier-section-label leadership-color">⚙️ Engineering Corps (E) <span class="walls-only-tag">citadel/PvP only</span></div>
+      <div class="tier-checks" id="tiers-E">
+        <label class="cb-label"><input type="checkbox" name="tierE" value="1"> E1</label>
+        <label class="cb-label"><input type="checkbox" name="tierE" value="2"> E2</label>
+        <label class="cb-label"><input type="checkbox" name="tierE" value="3"> E3</label>
+        <label class="cb-label"><input type="checkbox" name="tierE" value="4"> E4</label>
+        <label class="cb-label"><input type="checkbox" name="tierE" value="5"> E5</label>
+        <label class="cb-label"><input type="checkbox" name="tierE" value="6"> E6</label>
+        <label class="cb-label"><input type="checkbox" name="tierE" value="7"> E7</label>
+        <label class="cb-label"><input type="checkbox" name="tierE" value="8"> E8</label>
+        <label class="cb-label"><input type="checkbox" name="tierE" value="9"> E9</label>
+      </div>
+    </div>
+
+    <!-- PLAYER MONSTERS -->
+    <div class="tier-section">
+      <div class="tier-section-label dominance-color">🐲 Player Monsters (M)</div>
+      <div class="tier-checks" id="tiers-M">
+        <label class="cb-label"><input type="checkbox" name="tierM" value="1"> M1</label>
+        <label class="cb-label"><input type="checkbox" name="tierM" value="2"> M2</label>
+        <label class="cb-label"><input type="checkbox" name="tierM" value="3"> M3</label>
+        <label class="cb-label"><input type="checkbox" name="tierM" value="4"> M4</label>
+        <label class="cb-label"><input type="checkbox" name="tierM" value="5" checked> M5</label>
+        <label class="cb-label"><input type="checkbox" name="tierM" value="6"> M6</label>
+        <label class="cb-label"><input type="checkbox" name="tierM" value="7"> M7</label>
+        <label class="cb-label"><input type="checkbox" name="tierM" value="8"> M8</label>
+        <label class="cb-label"><input type="checkbox" name="tierM" value="9"> M9</label>
+      </div>
+    </div>
+
+    <!-- MERCENARIES -->
+    <div class="tier-section">
+      <div class="tier-section-label authority-color">🛡️ Mercenaries (Tier Equivalent)</div>
+      <div class="tier-checks" id="tiers-Merc">
+        <label class="cb-label"><input type="checkbox" name="tierMerc" value="1"> T1</label>
+        <label class="cb-label"><input type="checkbox" name="tierMerc" value="2"> T2</label>
+        <label class="cb-label"><input type="checkbox" name="tierMerc" value="3"> T3</label>
+        <label class="cb-label"><input type="checkbox" name="tierMerc" value="4"> T4</label>
+        <label class="cb-label"><input type="checkbox" name="tierMerc" value="5" checked> T5</label>
+        <label class="cb-label"><input type="checkbox" name="tierMerc" value="6"> T6</label>
+        <label class="cb-label"><input type="checkbox" name="tierMerc" value="7"> T7</label>
+        <label class="cb-label"><input type="checkbox" name="tierMerc" value="8"> T8</label>
+        <label class="cb-label"><input type="checkbox" name="tierMerc" value="9"> T9</label>
+      </div>
+    </div>
 
   </div>
 
   <!-- ═══════════════════════════════════════════
        CALCULATE
   ════════════════════════════════════════════ -->
-
-<button onclick="calculate()" class="btn-calculate">⚔️ Calculate Stack</button>
+  <button onclick="calculate()" class="btn-calculate">⚔️ Calculate Stack</button>
 
   <!-- ═══════════════════════════════════════════
        OUTPUT
   ════════════════════════════════════════════ -->
-
   <div class="card output-card">
     <h2>Stack Breakdown</h2>
     <pre id="output">Your stack breakdown will appear here after you hit Calculate...</pre>
@@ -154,6 +189,5 @@
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>

@@ -125,6 +125,7 @@ h1 {
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
+
 label {
   display: block;
   font-size: 0.75rem;
@@ -189,6 +190,7 @@ code {
   font-size: 0.8rem;
   color: var(--blue);
 }
+
 /* ---- Engineering note ---- */
 .engineering-note {
   margin-top: 0.8rem;
@@ -280,6 +282,84 @@ code {
   white-space: pre-wrap;
   word-break: break-word;
   margin-top: 0.5rem;
+}
+
+/* ---- Tier Checkboxes ---- */
+.tier-section {
+  margin-bottom: 1.1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tier-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.tier-section-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.leadership-color { color: var(--leadership); }
+.dominance-color  { color: var(--dominance); }
+.authority-color  { color: var(--authority); }
+
+.walls-only-tag {
+  font-size: 0.65rem;
+  font-weight: 400;
+  text-transform: none;
+  background: rgba(232,168,56,0.15);
+  border: 1px solid rgba(232,168,56,0.3);
+  color: var(--amber);
+  padding: 0.1em 0.5em;
+  border-radius: 3px;
+  letter-spacing: 0;
+}
+
+.tier-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.cb-label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.65rem;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  user-select: none;
+}
+
+.cb-label:hover {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.07);
+}
+
+.cb-label input[type="checkbox"] {
+  width: auto;
+  accent-color: var(--gold);
+  cursor: pointer;
+  margin: 0;
+}
+
+.cb-label:has(input:checked) {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.12);
+  color: var(--gold);
 }
 
 /* ---- Footer ---- */
