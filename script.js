@@ -685,7 +685,7 @@ c.innerHTML = ‘<div class="modal-section">’ +
 }
 
 // ============================================================
-// DATA CRUD
+// DATA CRUD 
 // ============================================================
 function addUnit(pool) {
 var type = pool === “mercs” ? “merc” : “monster”;
