@@ -140,14 +140,7 @@ return null;
 }
 
 function populateEnemyDropdowns() {
-var catEl = document.getElementById(“enemyCategory”);
-if (!catEl) return;
-
-var cats = [“all”,“common”,“rare”,“heroic”,“citadel_elven”,“citadel_cursed”,“epic”,“other”];
-catEl.innerHTML = cats.map(function(c) {
-return ‘<option value="' + c + '">’ + (c === “all” ? “All Categories” : formatLabel(c)) + ‘</option>’;
-}).join(””);
-
+// Category dropdown is hardcoded in HTML — just populate the squad dropdown
 filterSquadDropdown();
 }
 
@@ -685,7 +678,7 @@ c.innerHTML = ‘<div class="modal-section">’ +
 }
 
 // ============================================================
-// DATA CRUD 
+// DATA CRUD
 // ============================================================
 function addUnit(pool) {
 var type = pool === “mercs” ? “merc” : “monster”;
