@@ -47,6 +47,10 @@
     </div>
 
     <p class="hint" id="dbStatus">📂 Loading enemy database...</p>
+
+    <!-- Auto-exclude warnings (populated dynamically when squad selected) -->
+    <div id="excludeSection" style="display:none; margin-top:0.8rem;"></div>
+
   </div>
 
   <!-- ═══════════════════════════════════════════
@@ -171,7 +175,10 @@
   <!-- ═══════════════════════════════════════════
        CALCULATE
   ════════════════════════════════════════════ -->
-  <button onclick="calculate()" class="btn-calculate">⚔️ Calculate Stack</button>
+  <div class="btn-row">
+    <button onclick="calculate()" class="btn-calculate">⚔️ Calculate Stack</button>
+    <button onclick="openDataModal()" class="btn-manage">⚙️ Manage Data</button>
+  </div>
 
   <!-- ═══════════════════════════════════════════
        OUTPUT
@@ -182,10 +189,32 @@
   </div>
 
   <footer>
-    <p>v3.0 · <a href="https://github.com/goavs4/totalbattle-calculator" target="_blank">GitHub</a></p>
-    <p class="hint">Add enemy squads to <code>data/enemy_squads.json</code> · Mine troop stats in-game</p>
+    <p>v4.0 · <a href="https://github.com/goavs4/totalbattle-calculator" target="_blank">GitHub</a></p>
+    <p class="hint">Use ⚙️ Manage Data to add mercs, monsters &amp; enemy squads · Data saved in browser</p>
   </footer>
 
+</div>
+
+<!-- ═══════════════════════════════════════════
+     DATA ENTRY MODAL
+════════════════════════════════════════════ -->
+<div id="dataModal" style="display:none;" class="modal-overlay" onclick="if(event.target===this)closeDataModal()">
+  <div class="modal-box">
+
+    <div class="modal-header">
+      <h2>⚙️ Manage Data</h2>
+      <button class="modal-close" onclick="closeDataModal()">✕</button>
+    </div>
+
+    <div class="modal-tabs">
+      <button id="tab-mercs"    class="modal-tab active" onclick="switchModalTab('mercs')">Mercenaries</button>
+      <button id="tab-monsters" class="modal-tab"        onclick="switchModalTab('monsters')">Player Monsters</button>
+      <button id="tab-enemies"  class="modal-tab"        onclick="switchModalTab('enemies')">Enemy Squads</button>
+    </div>
+
+    <div id="modalContent" class="modal-content"></div>
+
+  </div>
 </div>
 
 <script src="script.js"></script>

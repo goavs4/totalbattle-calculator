@@ -362,6 +362,235 @@ code {
   color: var(--gold);
 }
 
+/* ---- Button Row ---- */
+.btn-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.btn-manage {
+  background: var(--bg-card);
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius);
+  color: var(--muted);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0 1.2rem;
+  transition: border-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+.btn-manage:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ---- Exclude Box ---- */
+.exclude-box {
+  background: rgba(224,82,82,0.07);
+  border: 1px solid rgba(224,82,82,0.25);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+}
+.exclude-title {
+  font-weight: 600;
+  color: var(--red);
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+.warning-line {
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+  color: var(--text);
+}
+.warning-line.high     { color: var(--red); }
+.warning-line.moderate { color: var(--amber); }
+.exclude-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+.exclude-toggle input { accent-color: var(--red); width:auto; }
+.exclude-preview {
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.7rem;
+  background: rgba(224,82,82,0.12);
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  color: var(--red);
+}
+
+/* ---- Modal ---- */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+.modal-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius);
+  width: 100%; max-width: 780px;
+  max-height: 88vh;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.modal-header h2 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--amber);
+  letter-spacing: 0.08em;
+}
+.modal-close {
+  background: none; border: none;
+  color: var(--muted); cursor: pointer;
+  font-size: 1.2rem; line-height: 1;
+  padding: 0.2rem 0.5rem;
+  transition: color 0.2s;
+}
+.modal-close:hover { color: var(--text); }
+
+.modal-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  padding: 0 1rem;
+}
+.modal-tab {
+  background: none; border: none; border-bottom: 2px solid transparent;
+  color: var(--muted); cursor: pointer;
+  font-family: var(--font-body); font-size: 0.85rem; font-weight: 600;
+  padding: 0.7rem 1rem;
+  transition: color 0.2s, border-color 0.2s;
+  margin-bottom: -1px;
+}
+.modal-tab:hover   { color: var(--text); }
+.modal-tab.active  { color: var(--gold); border-bottom-color: var(--gold); }
+
+.modal-content {
+  overflow-y: auto;
+  padding: 1.2rem 1.5rem 1.5rem;
+  flex: 1;
+}
+
+.modal-section h3 {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.count-badge {
+  background: rgba(201,168,76,0.2);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold);
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.1em 0.5em;
+}
+
+/* ---- Data Entry Forms ---- */
+.form-group-row {
+  display: flex; flex-wrap: wrap; gap: 0.4rem;
+  margin: 0.8rem 0;
+  align-items: center;
+}
+.form-input {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  padding: 0.45rem 0.6rem;
+  flex: 1; min-width: 100px;
+}
+.form-input.short { flex: 0 0 90px; min-width: 70px; }
+.form-input:focus { outline: none; border-color: var(--gold); }
+
+.btn-add {
+  background: rgba(201,168,76,0.15);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius-sm);
+  color: var(--gold);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.82rem; font-weight: 600;
+  padding: 0.45rem 0.9rem;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.btn-add:hover { background: rgba(201,168,76,0.25); }
+.btn-add.small { padding: 0.35rem 0.7rem; font-size: 0.75rem; }
+
+.btn-delete {
+  background: rgba(224,82,82,0.1);
+  border: 1px solid rgba(224,82,82,0.3);
+  border-radius: var(--radius-sm);
+  color: var(--red);
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.btn-delete:hover { background: rgba(224,82,82,0.2); }
+
+.btn-export {
+  background: rgba(74,144,217,0.1);
+  border: 1px solid rgba(74,144,217,0.3);
+  border-radius: var(--radius-sm);
+  color: var(--blue);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.8rem; font-weight: 600;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  transition: background 0.15s;
+}
+.btn-export:hover { background: rgba(74,144,217,0.2); }
+
+/* ---- Unit List ---- */
+.unit-list { margin: 0.5rem 0; }
+.unit-row {
+  display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+}
+.unit-row:last-child { border-bottom: none; }
+.unit-row.sub { margin-left: 1rem; background: rgba(255,255,255,0.02); border-radius: var(--radius-sm); margin-bottom: 0.2rem; }
+.unit-name  { font-weight: 600; color: var(--text); flex: 1; min-width: 120px; }
+.unit-tags  { color: var(--amber); font-size: 0.75rem; }
+.unit-stats { color: var(--muted); font-size: 0.75rem; margin-left: auto; }
+.empty-hint { margin-top: 0.5rem; font-style: italic; }
+
+/* ---- Squad Block ---- */
+.squad-block {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem;
+  margin: 0.6rem 0;
+}
+.squad-header {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.85rem; font-weight: 600; color: var(--amber);
+  margin-bottom: 0.5rem;
+}
+.sub-form { margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px solid var(--border); }
+
 /* ---- Footer ---- */
 footer {
   text-align: center;
