@@ -33,12 +33,19 @@
     <label for="enemyCategory">Category</label>
     <select id="enemyCategory" onchange="filterSquadDropdown()">
       <option value="all">All Categories</option>
+      <option value="common">Common</option>
+      <option value="rare">Rare</option>
+      <option value="heroic">Heroic</option>
+      <option value="citadel_elven">Citadel Elven</option>
+      <option value="citadel_cursed">Citadel Cursed</option>
+      <option value="epic">Epic</option>
+      <option value="other">Other</option>
     </select>
   </div>
   <div class="field-group">
     <label for="enemySquad">Squad</label>
     <select id="enemySquad" onchange="onSquadSelected()">
-      <option value="">-- None / Skip --</option>
+      <option value="">-- Select category first --</option>
     </select>
   </div>
 </div>
