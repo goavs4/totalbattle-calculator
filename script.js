@@ -110,24 +110,110 @@ el.style.color = ok ? “#4caf50” : “#e8a838”;
 }
 
 // ============================================================
-// SQUAD HELPERS
+// FALLBACK DATA — hardcoded so dropdowns work even if
+// JSON files fail to load (e.g. missing data/ folder)
 // ============================================================
+var FALLBACK_SQUADS = [
+{
+squad_id: “common_elf_L16”,
+squad_name: “Elf Squad”, squad_level: 16,
+category: “common”, faction: “elf”,
+allowed_leaders: “captain_only”,
+engineering_recommended: false,
+units: [
+{ unit_id: “elven_archer_L1”, unit_name: “Elven Archer”, count: 3300,
+combat_type: “Ranged”, subtype: “Human”, bonuses: [
+{ target_type: “Melee”, value: 35 }
+]},
+{ unit_id: “druid_L2”, unit_name: “Druid”, count: 850,
+combat_type: “Ranged”, subtype: “Human”, bonuses: [
+{ target_type: “Melee”, value: 25 }
+]}
+]
+},
+{
+squad_id: “common_elf_L18”,
+squad_name: “Elf Squad”, squad_level: 18,
+category: “common”, faction: “elf”,
+allowed_leaders: “captain_only”,
+engineering_recommended: false, units: []
+},
+{
+squad_id: “common_barbarian_L18”,
+squad_name: “Barbarian Squad”, squad_level: 18,
+category: “common”, faction: “barbarian”,
+allowed_leaders: “captain_only”,
+engineering_recommended: false, units: []
+},
+{
+squad_id: “common_cursed_L18”,
+squad_name: “Cursed Squad”, squad_level: 18,
+category: “common”, faction: “cursed”,
+allowed_leaders: “captain_only”,
+engineering_recommended: false, units: []
+},
+{
+squad_id: “heroic_template”,
+squad_name: “Heroic Squad (template)”, squad_level: 1,
+category: “heroic”, faction: “other”,
+allowed_leaders: “hero_plus_3_max”,
+engineering_recommended: false, units: []
+},
+{
+squad_id: “citadel_elven_template”,
+squad_name: “Elven Citadel (template)”, squad_level: 1,
+category: “citadel_elven”, faction: “elf”,
+allowed_leaders: “hero_plus_3_max”,
+engineering_recommended: true, units: []
+},
+{
+squad_id: “citadel_cursed_template”,
+squad_name: “Cursed Citadel (template)”, squad_level: 1,
+category: “citadel_cursed”, faction: “cursed”,
+allowed_leaders: “hero_plus_3_max”,
+engineering_recommended: true, units: []
+},
+{
+squad_id: “epic_armageddon_template”,
+squad_name: “Epic Armageddon (template)”, squad_level: 1,
+category: “epic”, faction: “other”,
+allowed_leaders: “hero_only”,
+engineering_recommended: false, units: []
+},
+{
+squad_id: “epic_arcane_swarm_template”,
+squad_name: “Epic Arcane Swarm (template)”, squad_level: 1,
+category: “epic”, faction: “other”,
+allowed_leaders: “captains_3_max”,
+engineering_recommended: false, units: []
+}
+];
 function getAllSquads() {
-var base = (DB.enemy && DB.enemy.squads) ? DB.enemy.squads : {};
-var baseList = [].concat(
+// Start with hardcoded fallback squads (always available)
+var fallbackIds = {};
+FALLBACK_SQUADS.forEach(function(s) { fallbackIds[s.squad_id] = true; });
+
+// Add JSON-loaded squads that aren’t already in fallback
+var jsonSquads = [];
+if (DB.enemy && DB.enemy.squads) {
+var base = DB.enemy.squads;
+jsonSquads = [].concat(
 base.common   || [],
 base.rare     || [],
 base.heroic   || [],
 base.citadels || [],
 base.epics    || [],
 base.other    || []
-).filter(function(s) { return s.squad_level > 0; });
+).filter(function(s) { return s.squad_level > 0 && !fallbackIds[s.squad_id]; });
+}
 
-var baseIds = {};
-baseList.forEach(function(s) { baseIds[s.squad_id] = true; });
+// Add localStorage squads not already present
+var allIds = {};
+FALLBACK_SQUADS.forEach(function(s) { allIds[s.squad_id] = true; });
+jsonSquads.forEach(function(s) { allIds[s.squad_id] = true; });
+var localSquads = DB.local.enemies.filter(function(s) { return !allIds[s.squad_id]; });
 
-var localList = DB.local.enemies.filter(function(s) { return !baseIds[s.squad_id]; });
-return baseList.concat(localList);
+return FALLBACK_SQUADS.concat(jsonSquads).concat(localSquads);
 }
 
 function findSquad(id) {
