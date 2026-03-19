@@ -439,13 +439,16 @@ mountedL: mountedL
 // MAIN CALCULATE
 // ============================================================
 function calculate() {
+try {
 var leadership = parseInt(safeVal(“leadershipCap”)) || 0;
 var dominance  = parseInt(safeVal(“dominanceCap”))  || 0;
 var authority  = parseInt(safeVal(“authorityCap”))  || 0;
 
+```
 if (!leadership && !dominance && !authority) {
-alert(“Enter at least one resource cap.”); return;
+  alert("Enter at least one resource cap."); return;
 }
+```
 
 var tiersG    = getCheckedTiers(“tierG”);
 var tiersS    = getCheckedTiers(“tierS”);
@@ -628,6 +631,12 @@ out += “Authority consumed: “ + authority.toLocaleString() + “ / “ + aut
 
 var outEl = document.getElementById(“output”);
 if (outEl) outEl.textContent = out;
+
+} catch(err) {
+var outEl = document.getElementById(“output”);
+if (outEl) outEl.textContent = “❌ ERROR: “ + err.message + “\n\nStack: “ + err.stack;
+alert(“Calculation error: “ + err.message);
+}
 }
 
 // ============================================================
