@@ -45,7 +45,24 @@
   <div class="field-group">
     <label for="enemySquad">Squad</label>
     <select id="enemySquad" onchange="onSquadSelected()">
-      <option value="">-- Select category first --</option>
+      <option value="">-- None / Skip --</option>
+      <optgroup label="Common">
+        <option value="common_elf_L16">Elf Squad (Lvl 16) — Elf</option>
+        <option value="common_elf_L18">Elf Squad (Lvl 18) — Elf</option>
+        <option value="common_barbarian_L18">Barbarian Squad (Lvl 18) — Barbarian</option>
+        <option value="common_cursed_L18">Cursed Squad (Lvl 18) — Cursed</option>
+      </optgroup>
+      <optgroup label="Heroic">
+        <option value="heroic_template">Heroic Squad (template)</option>
+      </optgroup>
+      <optgroup label="Citadel">
+        <option value="citadel_elven_template">Elven Citadel (template)</option>
+        <option value="citadel_cursed_template">Cursed Citadel (template)</option>
+      </optgroup>
+      <optgroup label="Epic">
+        <option value="epic_armageddon_template">Epic Armageddon (template)</option>
+        <option value="epic_arcane_swarm_template">Epic Arcane Swarm (template)</option>
+      </optgroup>
     </select>
   </div>
 </div>
