@@ -231,22 +231,28 @@ filterSquadDropdown();
 }
 
 function filterSquadDropdown() {
-var catEl   = document.getElementById(“enemyCategory”);
+// The base squads are hardcoded in HTML — we only append localStorage squads here
 var squadEl = document.getElementById(“enemySquad”);
 if (!squadEl) return;
 
-var cat = catEl ? catEl.value : “all”;
-var squads = getAllSquads().filter(function(s) {
-return cat === “all” || s.category === cat;
-});
+// Remove any previously appended local options (marked with data-local)
+var existing = squadEl.querySelectorAll(“option[data-local]”);
+for (var i = 0; i < existing.length; i++) existing[i].parentNode.removeChild(existing[i]);
 
-var html = ‘<option value="">– None / Skip –</option>’;
-squads.forEach(function(s) {
-html += ‘<option value="' + s.squad_id + '">’ +
-s.squad_name + ’ (Lvl ’ + s.squad_level + ’) — ’ + formatLabel(s.faction) +
-‘</option>’;
+// Append localStorage squads
+if (DB.local.enemies.length > 0) {
+var group = document.createElement(“optgroup”);
+group.label = “My Added Squads”;
+DB.local.enemies.forEach(function(s) {
+var o = document.createElement(“option”);
+o.value = s.squad_id;
+o.textContent = s.squad_name + “ (Lvl “ + s.squad_level + “) — “ + formatLabel(s.faction);
+o.setAttribute(“data-local”, “1”);
+group.appendChild(o);
 });
-squadEl.innerHTML = html;
+squadEl.appendChild(group);
+}
+
 onSquadSelected();
 }
 
